@@ -1,0 +1,3 @@
+[submodule "common/autilitys"]
+	path = common/autilitys
+	url = https://github.com/abnerhong888/autilitys.git

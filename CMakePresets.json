@@ -1,0 +1,34 @@
+{
+    "version": 3,
+    "configurePresets": [
+        {
+            "name": "mingw",
+            "hidden": false,
+            "generator": "MinGW Makefiles",
+            "description": "Use MinGW Makefiles generator by default",
+            "cacheVariables": {
+                "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
+            }
+        },
+
+        {
+            "name": "vs2022",
+            "hidden": false,
+            "generator": "Visual Studio 17 2022",
+            "description": "Use Visual Studio 17 2022 generator by default",
+            "cacheVariables": {
+                "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
+            }
+        },
+
+        {
+            "name": "unix",
+            "hidden": false,
+            "generator": "Unix Makefiles",
+            "description": "Use Unix Makefiles generator by default",
+            "cacheVariables": {
+                "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
+            }
+        }
+    ]
+}
