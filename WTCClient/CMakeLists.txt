@@ -21,6 +21,7 @@ add_executable(${PROJECTNAME})
 target_include_directories( 
     ${PROJECTNAME} 
     PUBLIC ${INC_DIR} 
+    PUBLIC "${SRC_COMMON_DIR}"
     PUBLIC "${SRC_COMMON_DIR}/autilitys/autils" 
 )
 
@@ -39,6 +40,6 @@ target_compile_definitions( ${PROJECTNAME}  PUBLIC
 )
 
 if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
-    target_link_libraries(${PROJECTNAME} PUBLIC stdc++fs)
+    target_link_libraries(${PROJECTNAME} PUBLIC stdc++fs -lncurses -lncursesw)
 endif()
 

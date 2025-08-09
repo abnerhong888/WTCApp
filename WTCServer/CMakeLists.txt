@@ -21,6 +21,7 @@ add_executable(${PROJECTNAME})
 target_include_directories( 
     ${PROJECTNAME} 
     PUBLIC ${INC_DIR} 
+    PUBLIC "${SRC_COMMON_DIR}" 
     PUBLIC "${SRC_COMMON_DIR}/autilitys/autils" 
 )
 
