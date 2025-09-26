@@ -14,6 +14,9 @@ set(SRCS)
     
 project(${PROJECTNAME})
 
+find_package(PkgConfig REQUIRED)
+pkg_check_modules(GTK4 REQUIRED gtk4)
+
 aux_source_directory(${SRC_DIR} SRCS)
 
 add_executable(${PROJECTNAME})
@@ -23,6 +26,7 @@ target_include_directories(
     PUBLIC ${INC_DIR} 
     PUBLIC "${SRC_COMMON_DIR}"
     PUBLIC "${SRC_COMMON_DIR}/autilitys/autils" 
+    PUBLIC ${GTK4_INCLUDE_DIRS}
 )
 
 target_sources( 
@@ -40,6 +44,7 @@ target_compile_definitions( ${PROJECTNAME}  PUBLIC
 )
 
 if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
-    target_link_libraries(${PROJECTNAME} PUBLIC stdc++fs -lncurses -lncursesw)
+    target_link_directories(${PROJECTNAME} PUBLIC ${GTK4_LIBRARY_DIRS})
+    target_link_libraries(${PROJECTNAME} PUBLIC stdc++fs -lncurses -lncursesw ${GTK4_LIBRARIES})
 endif()
 
