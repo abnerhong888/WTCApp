@@ -1,3 +1,3 @@
 #!/bin/bash 
 
-stdbuf -oL ./build/a.out |& tee run.log
+stdbuf -o0 ./build/a.out |& tee run.log

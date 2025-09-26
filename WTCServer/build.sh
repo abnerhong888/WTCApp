@@ -9,6 +9,6 @@ cd build
 
 rm * -rf
 
-stdbuf -oL cmake --preset=unix .. |& tee cmake.log
+stdbuf -o0 cmake --preset=unix .. |& tee cmake.log
 
-stdbuf -oL cmake --build . |& tee build.log
+stdbuf -o0 cmake --build . |& tee build.log
