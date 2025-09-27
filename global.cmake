@@ -10,7 +10,7 @@ set(CMAKE_BUILD_TYPE "Debug" CACHE STRING "build type" FORCE)
 
 #set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON CACHE BOOL "windows export all symbols to be used" FORCE)
 
-set(CMAKE_EXPORT_COMPILE_COMMANDS ON ON CACHE BOOL "cmake export compile command" FORCE)
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON CACHE BOOL "cmake export compile command" FORCE)
 set(SOLUTION_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../" CACHE STRING "set solution dir" FORCE)
 set(LINKER_DIR "${SOLUTION_DIR}/linker.cmake" CACHE STRING "set linker dir" FORCE)
 

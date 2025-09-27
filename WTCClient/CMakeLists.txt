@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.28.0)
 
 include(${CMAKE_CURRENT_SOURCE_DIR}/../global.cmake)
 
-set(PROJECTNAME "a.out")
+set(PROJECTNAME "wtc")
 set(INC_DIR ".")
 set(SRC_DIR ".")
 set(SRC_COMMON_DIR "../common")

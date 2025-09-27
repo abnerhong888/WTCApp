@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
   <object id="main_window" class="GtkWindow">
-    <property name="title">hello</property>
+    <property name="name">main_window</property>
+    <property name="title">wtc</property>
     <property name="default-width">600</property>
     <property name="default-height">400</property>
     <child>
+        
         <object class="GtkPaned" id="horizontal_paned">
             <property name="orientation">horizontal</property>
-            <property name="position">200</property> <!-- Initial position of the divider -->
+            <property name="position">200</property>
             <child>
               <object class="GtkLabel" id="pane1_label">
                 <property name="label">Left Pane Content</property>
@@ -18,37 +20,8 @@
                 <property name="label">Right Pane Content</property>
               </object>
             </child>
-          </object>
-      <!-- <object id="grid" class="GtkGrid">
-        <child>
-          <object id="button1" class="GtkButton">
-            <property name="label">Button 1</property>
-            <layout>
-              <property name="column">0</property>
-              <property name="row">0</property>
-            </layout>
-          </object>
-        </child>
-        <child>
-          <object id="button2" class="GtkButton">
-            <property name="label">Button 2</property>
-            <layout>
-              <property name="column">1</property>
-              <property name="row">0</property>
-            </layout>
-          </object>
-        </child>
-        <child>
-          <object id="quit" class="GtkButton">
-            <property name="label">Quit</property>
-            <layout>
-              <property name="column">0</property>
-              <property name="row">1</property>
-              <property name="column-span">2</property>
-            </layout>
-          </object>
-        </child>
-      </object> -->
+        </object>
+
     </child>
   </object>
 </interface>
