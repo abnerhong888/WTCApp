@@ -1,9 +1,6 @@
 cmake_minimum_required(VERSION 3.28.0)
 
-set(CMAKE_CXX_STANDARD 14)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
-
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -Wall")
+include(${CMAKE_CURRENT_SOURCE_DIR}/../global.cmake)
 
 set(PROJECTNAME "a.out")
 set(INC_DIR ".")
@@ -11,7 +8,7 @@ set(SRC_DIR ".")
 set(SRC_COMMON_DIR "../common")
 
 set(SRCS)
-    
+
 project(${PROJECTNAME})
 
 find_package(PkgConfig REQUIRED)
@@ -34,6 +31,11 @@ target_sources(
     PUBLIC ${SRCS}
 )
 
+if(CMAKE_BUILD_TYPE STREQUAL "Release")
+    include(${SOLUTION_DIR}/addGtkResource.cmake)
+    add_gtk_resources(${PROJECTNAME} "${CMAKE_CURRENT_SOURCE_DIR}/resources/wtc.gresource.xml")
+endif()
+
 target_compile_definitions( ${PROJECTNAME}  PUBLIC
     # "_CRT_SECURE_NO_WARNINGS"
     PUBLIC
@@ -45,6 +47,5 @@ target_compile_definitions( ${PROJECTNAME}  PUBLIC
 
 if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
     target_link_directories(${PROJECTNAME} PUBLIC ${GTK4_LIBRARY_DIRS})
-    target_link_libraries(${PROJECTNAME} PUBLIC stdc++fs -lncurses -lncursesw ${GTK4_LIBRARIES})
+    target_link_libraries(${PROJECTNAME} PUBLIC stdc++fs ${GTK4_LIBRARIES})
 endif()
-
