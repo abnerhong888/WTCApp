@@ -15,6 +15,7 @@ find_package(PkgConfig REQUIRED)
 pkg_check_modules(GTK4 REQUIRED gtk4)
 
 aux_source_directory(${SRC_DIR} SRCS)
+aux_source_directory(${SRC_DIR}/wtc SRCS)
 
 add_executable(${PROJECTNAME})
 
@@ -24,6 +25,8 @@ target_include_directories(
     PUBLIC "${SRC_COMMON_DIR}"
     PUBLIC "${SRC_COMMON_DIR}/autilitys/autils" 
     PUBLIC ${GTK4_INCLUDE_DIRS}
+    PUBLIC "${SRC_COMMON_DIR}/gtkaa" 
+    PUBLIC "${SRC_DIR}/wtc"
 )
 
 target_sources( 
