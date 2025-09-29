@@ -3,20 +3,23 @@
 
 #include "gtkaa/gtkaa.h"
 #include "wtcWindow.h"
+#include <csignal>
 
 class WTCApp : public gtkaa::IApp{
 public:
     
-    WTCApp(){ }
+    WTCApp(){ 
+        
+    }
     ~WTCApp(){ }
 
     using gtkaa::IApp::init; // expose base overload to avoid hiding warning
     int init(){
-        m_main_window.init();
-        if(gtkaa::IApp::init("abner.wtc", G_CALLBACK(m_main_window.on_activate), &m_main_window)){
+        if(gtkaa::IApp::init("abner.wtc")){
             return -1;
         }
-
+        
+        event_handler += {"activate", IApp::on_activate, &m_main_window};
         return 0;
     }
     
@@ -24,7 +27,7 @@ public:
         return gtkaa::IApp::run(argc, argv);
     }
 private:
-    WTCWindow m_main_window;
+    WTCWindow m_main_window{"main_window"};
 };
 
 #endif

@@ -16,22 +16,40 @@ namespace GTKAA_NAMESPACE{
     using sptr = std::shared_ptr<T>;
 
     #define INFO_LOG(fmt, ...) printf("[gtkaa] " fmt, ##__VA_ARGS__)
+
+    
+    typedef void  (*EventCallback) (GObject*, gpointer);
+
+    struct EventData{
+        EventCallback callback;
+        std::string signal_name;
+        gpointer user_data;
+
+        EventData(std::string signal_name, EventCallback callback, gpointer user_data){
+            this->callback = callback;
+            this->signal_name = signal_name;
+            this->user_data = user_data;
+        }
+    };
 }
 
 
 
 namespace GTKAA_NAMESPACE{
-    using sptrGTKApp = sptr<GtkApplication>;
+    
     using sptrGTKBuilder = sptr<GtkBuilder>;
     using sptrGTKCssProvider = sptr<GtkCssProvider>;
-    using sptrGTKWindow = sptr<GtkWindow>;
+    using sptrGTKApp = sptr<GtkApplication>;
+    using sptrGTKWidget = sptr<GtkWidget>;
 
 
 
     template<typename T>
     void object_release(T* obj){
-        INFO_LOG("release %s\n", g_type_name(G_OBJECT_TYPE(obj)));
-        g_object_unref(obj);
+        if(G_IS_OBJECT(obj)){
+            INFO_LOG("release %s\n", g_type_name(G_OBJECT_TYPE(obj)));
+            g_object_unref(obj);
+        }
     }
 
     template<typename T>

@@ -22,11 +22,11 @@ extern "C" {
 #endif
 
 #ifdef DEBUG
-    #define BUILDER_LOAD(builder, path, error) gtk_builder_add_from_file(builder, path, error)
-    #define CSS_LOAD(cssProvider, path) gtk_css_provider_load_from_path(cssProvider, path)
+    #define BUILDER_LOAD(builder, path) builder.load_from_file(path)
+    #define CSS_LOAD(cssProvider, path) cssProvider.load_from_path(path)
 #else
-    #define BUILDER_LOAD(builder, path, error) gtk_builder_add_from_resource(builder, path, error)
-    #define CSS_LOAD(cssProvider, path) gtk_css_provider_load_from_resource(cssProvider, path)
+    #define BUILDER_LOAD(builder, path) builder.load_from_resource(path)
+    #define CSS_LOAD(cssProvider, path) cssProvider.load_from_resource(path)
 #endif
 
 #endif

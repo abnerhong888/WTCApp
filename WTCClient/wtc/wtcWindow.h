@@ -1,58 +1,60 @@
 #ifndef __WTCWINDOW_H__
 #define __WTCWINDOW_H__
 
+#include "gtk/gtkshortcut.h"
 #include "gtkaa/gtkaa.h"
 #include "wtcCommon.h"
 
 class WTCWindow : public gtkaa::IWindow{
 public:
-    WTCWindow(){
+    WTCWindow(): gtkaa::IWindow(""){
+    }
+    WTCWindow(std::string widgetName): gtkaa::IWindow(widgetName){
     }
     ~WTCWindow(){
     }
-    gtkaa::sptrGTKBuilder m_builder = nullptr;
-    gtkaa::sptrGTKCssProvider m_css_provider = nullptr;
-    gtkaa::sptrGTKWindow m_window = nullptr;
-public:
-    int init(){
-        m_builder = gtkaa::make_ptr_release(gtk_builder_new());
-        m_css_provider = gtkaa::make_ptr_release(gtk_css_provider_new());
 
-        
-        return 0;
-    }
-    GtkPaned *paned;
+    std::string title = "WTC";
+    int height = 600;
+    int width = 800;
+
+
+    gtkaa::IBuilder m_builder;
+    gtkaa::ICssProvider m_css_provider;
+
+    gtkaa::IPaned m_paned;
+    gtkaa::ILabel m_label;
+    gtkaa::ILabel m_label2;
 private:
     void activate(GObject *obj, gpointer user_data) override{
-        GError* error = NULL;
+        createWindow(GTK_APPLICATION(obj));     
+        set_title(title);
+        set_default_size(width, height);
 
-        BUILDER_LOAD(m_builder.get(), MAIN_WINDOW_UI, &error);
-        CSS_LOAD(m_css_provider.get(), MAIN_WINDOW_CSS);
+        m_paned.create(GTK_ORIENTATION_HORIZONTAL);
 
-        if(error){
-            INFO_LOG("Failed to load ui file: %s", error->message);
-            g_error_free(error);
-            return;
-        }
 
-        m_window = gtkaa::make_ptr_from_builder(
-            GTK_WINDOW( gtk_builder_get_object(m_builder.get(), "main_window") )
-        );
-        
-        gtk_style_context_add_provider_for_display(
-            gdk_display_get_default(), 
-            GTK_STYLE_PROVIDER(m_css_provider.get()), 
-            GTK_STYLE_PROVIDER_PRIORITY_USER
-        );
-        
-        
+        m_label.create("Left Pane Content");
+        m_label2.create("Right Pane Content");
 
-        paned = GTK_PANED(gtk_builder_get_object(m_builder.get(), "horizontal_paned"));
-        g_signal_connect(paned, "notify::position", G_CALLBACK(on_paned_position_changed), NULL);
+        m_paned.set_start_child(m_label.getWidget());
+        m_paned.set_end_child(m_label2.getWidget());
+        m_paned.set_position(150);
+        m_paned.event_handler += {"notify::position", on_paned_position_changed, NULL};
+        set_child(m_paned.getWidget());
+
+        // BUILDER_LOAD(m_builder, MAIN_WINDOW_UI);
+        // createWindow(m_builder.get_object<GtkWidget>("main_window"));
+        CSS_LOAD(m_css_provider, MAIN_WINDOW_CSS);
+        m_css_provider.apply();
+
     
-
-        gtk_window_set_application (m_window.get(), (GtkApplication*)obj);
-        gtk_window_present(m_window.get());
+        set_application(GTK_APPLICATION(obj));
+        present();
+    }
+    static void on_paned_position_changed(GObject *obj, gpointer user_data){
+        printf("456 0x%016lx\n", (uint64_t)user_data); 
+        // reinterpret_cast<IWindow*>(user_data)->paned_position_changed(obj, user_data);
     }
 };
 
