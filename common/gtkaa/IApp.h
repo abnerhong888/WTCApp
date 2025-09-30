@@ -27,10 +27,6 @@ public:
     virtual int run(int argc, char **argv){
         return g_application_run(G_APPLICATION(m_app.get()), argc, argv);
     }
-public:
-    static void on_activate(GObject *obj, gpointer user_data){
-        reinterpret_cast<IWindow*>(user_data)->activate(obj, user_data);
-    }
 };
 
 }

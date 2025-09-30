@@ -1,3 +1,9 @@
-/* #main_window {
-    background-color: #bb0d0d;
-} */
+/* GTK Label */
+label {
+    color: #ddd8d8; /* Red color using hex code */
+}
+
+/* specific element with id */
+#main_window {
+    background-color: #1f1e1e;
+}

@@ -1,7 +1,6 @@
 #ifndef __WTCWINDOW_H__
 #define __WTCWINDOW_H__
 
-#include "gtk/gtkshortcut.h"
 #include "gtkaa/gtkaa.h"
 #include "wtcCommon.h"
 
