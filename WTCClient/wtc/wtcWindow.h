@@ -24,7 +24,7 @@ public:
     gtkaa::IPaned m_paned;
     gtkaa::ILabel m_label;
     gtkaa::ILabel m_label2;
-private:
+public:
     void activate(GObject *obj, gpointer user_data) override{
         createWindow(GTK_APPLICATION(obj));     
         set_title(title);

@@ -26,9 +26,10 @@ public:
     int run(int argc, char **argv){
         return gtkaa::IApp::run(argc, argv);
     }
-    public:
+public:
     static void on_activate(GObject *obj, gpointer user_data){
-        reinterpret_cast<gtkaa::IWindow*>(user_data)->activate(obj, user_data);
+        WTCWindow* window = reinterpret_cast<WTCWindow*>(user_data);
+        window->activate(obj, user_data);
     }
 private:
     WTCWindow m_main_window{"main_window"};
