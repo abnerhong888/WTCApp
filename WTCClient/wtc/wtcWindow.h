@@ -1,7 +1,7 @@
 #ifndef __WTCWINDOW_H__
 #define __WTCWINDOW_H__
 
-#include "gtkaa/gtkaa.h"
+#include <gtkaa/gtkaa.h>
 #include "wtcCommon.h"
 
 class WTCWindow : public gtkaa::IWindow{

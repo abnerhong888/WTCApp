@@ -1,7 +1,7 @@
 #ifndef __IBASE_H__
 #define __IBASE_H__
 
-#include "ICommon.h"
+#include <gtkaa/base/ICommon.h>
 
 namespace GTKAA_NAMESPACE{
 

@@ -1,8 +1,8 @@
 #ifndef __IBUILDER_H__
 #define __IBUILDER_H__
 
-#include "ICommon.h"
-#include "IEvent.h"
+#include <gtkaa/base/ICommon.h>
+#include <gtkaa/base/IEvent.h>
 
 namespace GTKAA_NAMESPACE{
 

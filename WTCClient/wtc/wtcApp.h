@@ -1,7 +1,7 @@
 #ifndef __WTCAPP_H__
 #define __WTCAPP_H__
 
-#include "gtkaa/gtkaa.h"
+#include <gtkaa/gtkaa.h>
 #include "wtcWindow.h"
 #include <csignal>
 

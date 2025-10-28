@@ -1,8 +1,8 @@
 #ifndef __IPANED_H__
 #define __IPANED_H__
 
-#include "ICommon.h"
-#include "IWidget.h"
+#include <gtkaa/base/ICommon.h>
+#include <gtkaa/base/IWidget.h>
 
 namespace GTKAA_NAMESPACE{
 

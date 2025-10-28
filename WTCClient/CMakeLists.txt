@@ -25,8 +25,8 @@ target_include_directories(
     PUBLIC "${SRC_COMMON_DIR}"
     PUBLIC "${SRC_COMMON_DIR}/autilitys/autils" 
     PUBLIC ${GTK4_INCLUDE_DIRS}
-    PUBLIC "${SRC_COMMON_DIR}/gtkaa" 
     PUBLIC "${SRC_DIR}/wtc"
+    # PUBLIC "${SRC_COMMON_DIR}/gtkaa" 
 )
 
 target_sources( 

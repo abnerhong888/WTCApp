@@ -1,9 +1,9 @@
 #ifndef __IAPP_H__
 #define __IAPP_H__
 
-#include "ICommon.h"
-#include "IEvent.h"
-#include "IWindow.h"
+#include <gtkaa/base/ICommon.h>
+#include <gtkaa/base/IEvent.h>
+#include <gtkaa/IWindow.h>
 
 namespace GTKAA_NAMESPACE{
 
