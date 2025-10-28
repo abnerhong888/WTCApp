@@ -36,11 +36,11 @@ public:
         m_label.create("Left Pane Content");
         m_label2.create("Right Pane Content");
 
-        m_paned.set_start_child(m_label.getWidget());
-        m_paned.set_end_child(m_label2.getWidget());
+        m_paned.set_start_child(&m_label);
+        m_paned.set_end_child(&m_label2);
         m_paned.set_position(150);
         m_paned.event_handler += {"notify::position", on_paned_position_changed, NULL};
-        set_child(m_paned.getWidget());
+        set_child(&m_paned);
 
         // BUILDER_LOAD(m_builder, MAIN_WINDOW_UI);
         // createWindow(m_builder.get_object<GtkWidget>("main_window"));

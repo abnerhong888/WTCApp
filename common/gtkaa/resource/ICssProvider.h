@@ -19,11 +19,11 @@ public:
     }
 public:
     virtual int load_from_path(std::string path){
-        gtk_css_provider_load_from_path(GTK_CSS_PROVIDER(this->get()), path.c_str());
+        gtk_css_provider_load_from_path(GTK_CSS_PROVIDER(get()), path.c_str());
         return 0;
     }
     virtual int load_from_resource(std::string path){
-        gtk_css_provider_load_from_resource(GTK_CSS_PROVIDER(this->get()), path.c_str());
+        gtk_css_provider_load_from_resource(GTK_CSS_PROVIDER(get()), path.c_str());
         return 0;
     }
     virtual void apply(GdkDisplay * display = nullptr){

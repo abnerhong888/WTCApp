@@ -20,7 +20,7 @@ public:
     }
 public:
     virtual int load_from_file(std::string path){
-        if(!gtk_builder_add_from_file(GTK_BUILDER(this->get()), path.c_str(), &error)){
+        if(!gtk_builder_add_from_file(GTK_BUILDER(get()), path.c_str(), &error)){
             INFO_LOG("Failed to load ui file: %s", error->message);
             g_error_free(error);
             return -1;
@@ -29,7 +29,7 @@ public:
         return 0;
     }
     virtual int load_from_resource(std::string path){
-        if(!gtk_builder_add_from_resource(GTK_BUILDER(this->get()), path.c_str(), &error)){
+        if(!gtk_builder_add_from_resource(GTK_BUILDER(get()), path.c_str(), &error)){
             INFO_LOG("Failed to load ui file: %s", error->message);
             g_error_free(error);
             return -1;
