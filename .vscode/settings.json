@@ -66,5 +66,10 @@
         "cinttypes": "cpp",
         "typeinfo": "cpp",
         "variant": "cpp"
-    }
+    },
+    "clangd.arguments": [
+            "--compile-commands-dir=/home/user/ws/mygit/WTCApp/WTCClient/build"
+    ],
+    "cmake.sourceDirectory": "/home/user/ws/mygit/WTCApp/WTCClient"
+
 }
