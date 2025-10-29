@@ -1,7 +1,7 @@
-#ifndef __IGRID_H__
-#define __IGRID_H__
+#ifndef __gtkaaIGRID_H__
+#define __gtkaaIGRID_H__
 
-#include <gtkaa/base/IBase.h>
+#include <gtkaa/base/gtkaabase.h>
 
 namespace GTKAA_NAMESPACE{
 

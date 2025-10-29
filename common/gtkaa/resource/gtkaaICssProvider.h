@@ -1,8 +1,7 @@
-#ifndef __ICSSPROVIDER_H__
-#define __ICSSPROVIDER_H__
+#ifndef __gtkaaICSSPROVIDER_H__
+#define __gtkaaICSSPROVIDER_H__
 
-#include <gtkaa/base/ICommon.h>
-#include <gtkaa/base/IEvent.h>
+#include <gtkaa/base/gtkaabase.h>
 
 namespace GTKAA_NAMESPACE{
 

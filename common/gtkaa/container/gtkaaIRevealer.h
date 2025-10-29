@@ -1,7 +1,7 @@
-#ifndef __IREVEALER_H__
-#define __IREVEALER_H__
+#ifndef __gtkaaIREVEALER_H__
+#define __gtkaaIREVEALER_H__
 
-#include <gtkaa/base/IBase.h>
+#include <gtkaa/base/gtkaabase.h>
 
 namespace GTKAA_NAMESPACE{
 

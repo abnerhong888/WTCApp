@@ -1,7 +1,7 @@
-#ifndef __IWIDGET_H__
-#define __IWIDGET_H__
+#ifndef __gtkaaIWIDGET_H__
+#define __gtkaaIWIDGET_H__
 
-#include <gtkaa/base/IBase.h>
+#include <gtkaa/base/gtkaabase.h>
 
 namespace GTKAA_NAMESPACE{
 

@@ -1,7 +1,7 @@
-#ifndef __ISTACK_H__
-#define __ISTACK_H__
+#ifndef __gtkaaISTACK_H__
+#define __gtkaaISTACK_H__
 
-#include <gtkaa/base/IBase.h>
+#include <gtkaa/base/gtkaabase.h>
 
 namespace GTKAA_NAMESPACE{
 

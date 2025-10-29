@@ -1,7 +1,7 @@
-#ifndef __IEVENT_H__
-#define __IEVENT_H__
+#ifndef __gtkaaIEVENT_H__
+#define __gtkaaIEVENT_H__
 
-#include <gtkaa/base/ICommon.h>
+#include <gtkaa/base/gtkaaICommon.h>
 
 namespace GTKAA_NAMESPACE{
 

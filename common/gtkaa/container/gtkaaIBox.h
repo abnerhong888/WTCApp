@@ -1,7 +1,7 @@
-#ifndef __IBOX_H__
-#define __IBOX_H__
+#ifndef __gtkaaIBOX_H__
+#define __gtkaaIBOX_H__
 
-#include <gtkaa/base/IBase.h>
+#include <gtkaa/base/gtkaabase.h>
 
 namespace GTKAA_NAMESPACE{
 

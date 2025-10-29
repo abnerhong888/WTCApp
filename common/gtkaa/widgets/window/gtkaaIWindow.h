@@ -1,8 +1,7 @@
-#ifndef __IWINDOW_H__
-#define __IWINDOW_H__
+#ifndef __gtkaaIWINDOW_H__
+#define __gtkaaIWINDOW_H__
 
-#include <gtkaa/base/ICommon.h>
-#include <gtkaa/base/IWidget.h>
+#include <gtkaa/base/gtkaabase.h>
 
 namespace GTKAA_NAMESPACE{
 

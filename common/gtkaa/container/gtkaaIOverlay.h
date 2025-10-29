@@ -1,7 +1,7 @@
-#ifndef __IOVERLAY_H__
-#define __IOVERLAY_H__
+#ifndef __gtkaaIOVERLAY_H__
+#define __gtkaaIOVERLAY_H__
 
-#include <gtkaa/base/IBase.h>
+#include <gtkaa/base/gtkaabase.h>
 
 namespace GTKAA_NAMESPACE{
 

@@ -1,9 +1,7 @@
-#ifndef __IAPP_H__
-#define __IAPP_H__
+#ifndef __gtkaaIAPP_H__
+#define __gtkaaIAPP_H__
 
-#include <gtkaa/base/ICommon.h>
-#include <gtkaa/base/IEvent.h>
-#include <gtkaa/widgets/window/IWindow.h>
+#include <gtkaa/base/gtkaabase.h>
 
 namespace GTKAA_NAMESPACE{
 

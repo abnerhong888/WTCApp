@@ -1,7 +1,7 @@
-#ifndef __IEXPANDER_H__
-#define __IEXPANDER_H__
+#ifndef __gtkaaIEXPANDER_H__
+#define __gtkaaIEXPANDER_H__
 
-#include <gtkaa/base/IBase.h>
+#include <gtkaa/base/gtkaabase.h>
 
 namespace GTKAA_NAMESPACE{
 

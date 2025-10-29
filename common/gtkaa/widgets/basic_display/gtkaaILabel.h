@@ -1,8 +1,7 @@
-#ifndef __ILABEL_H__
-#define __ILABEL_H__
+#ifndef __gtkaaILABEL_H__
+#define __gtkaaILABEL_H__
 
-#include <gtkaa/base/ICommon.h>
-#include <gtkaa/base/IWidget.h> 
+#include <gtkaa/base/gtkaabase.h>
 
 namespace GTKAA_NAMESPACE{
 

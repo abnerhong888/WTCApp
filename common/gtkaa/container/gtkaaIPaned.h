@@ -1,7 +1,7 @@
-#ifndef __IPANED_H__
-#define __IPANED_H__
+#ifndef __gtkaaIPANED_H__
+#define __gtkaaIPANED_H__
 
-#include <gtkaa/base/IBase.h>
+#include <gtkaa/base/gtkaabase.h>
 
 namespace GTKAA_NAMESPACE{
 
