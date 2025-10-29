@@ -1,5 +1,5 @@
-#ifndef __gtkaaIREVEALER_H__
-#define __gtkaaIREVEALER_H__
+#ifndef __gtkaaIRevealer_H__
+#define __gtkaaIRevealer_H__
 
 #include <gtkaa/base/gtkaabase.h>
 

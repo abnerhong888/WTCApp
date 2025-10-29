@@ -1,5 +1,5 @@
-#ifndef __gtkaaISEPARATOR_H__
-#define __gtkaaISEPARATOR_H__
+#ifndef __gtkaaISeparator_H__
+#define __gtkaaISeparator_H__
 
 #include <gtkaa/base/gtkaabase.h>
 

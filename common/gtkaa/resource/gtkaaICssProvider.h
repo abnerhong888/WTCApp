@@ -1,5 +1,5 @@
-#ifndef __gtkaaICSSPROVIDER_H__
-#define __gtkaaICSSPROVIDER_H__
+#ifndef __gtkaaICssProvider_H__
+#define __gtkaaICssProvider_H__
 
 #include <gtkaa/base/gtkaabase.h>
 

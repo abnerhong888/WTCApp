@@ -1,5 +1,5 @@
-#ifndef __gtkaaIBUILDER_H__
-#define __gtkaaIBUILDER_H__
+#ifndef __gtkaaIBuilder_H__
+#define __gtkaaIBuilder_H__
 
 #include <gtkaa/base/gtkaabase.h>
 

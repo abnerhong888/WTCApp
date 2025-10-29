@@ -1,5 +1,5 @@
-#ifndef __gtkaaAPP_H__
-#define __gtkaaAPP_H__
+#ifndef __gtkaaApp_H__
+#define __gtkaaApp_H__
 
 #include <gtkaa/app/gtkaaIApp.h>
 

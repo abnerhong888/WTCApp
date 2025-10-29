@@ -1,5 +1,5 @@
-#ifndef __gtkaaIOVERLAY_H__
-#define __gtkaaIOVERLAY_H__
+#ifndef __gtkaaIOverlay_H__
+#define __gtkaaIOverlay_H__
 
 #include <gtkaa/base/gtkaabase.h>
 

@@ -1,5 +1,5 @@
-#ifndef __gtkaaICOMMON_H__
-#define __gtkaaICOMMON_H__
+#ifndef __gtkaaICommon_H__
+#define __gtkaaICommon_H__
 
 #include <gtk/gtk.h>
 

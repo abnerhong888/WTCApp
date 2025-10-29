@@ -1,5 +1,5 @@
-#ifndef __gtkaaIPROGRESSBAR_H__
-#define __gtkaaIPROGRESSBAR_H__
+#ifndef __gtkaaIProgressBar_H__
+#define __gtkaaIProgressBar_H__
 
 #include <gtkaa/base/gtkaabase.h>
 

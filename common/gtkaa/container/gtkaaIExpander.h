@@ -1,5 +1,5 @@
-#ifndef __gtkaaIEXPANDER_H__
-#define __gtkaaIEXPANDER_H__
+#ifndef __gtkaaIExpander_H__
+#define __gtkaaIExpander_H__
 
 #include <gtkaa/base/gtkaabase.h>
 

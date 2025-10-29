@@ -1,5 +1,5 @@
-#ifndef __gtkaaIGRID_H__
-#define __gtkaaIGRID_H__
+#ifndef __gtkaaIGrid_H__
+#define __gtkaaIGrid_H__
 
 #include <gtkaa/base/gtkaabase.h>
 

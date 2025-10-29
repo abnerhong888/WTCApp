@@ -1,5 +1,5 @@
-#ifndef __gtkaaIPICTURE_H__
-#define __gtkaaIPICTURE_H__
+#ifndef __gtkaaIPicture_H__
+#define __gtkaaIPicture_H__
 
 #include <gtkaa/base/gtkaabase.h>
 

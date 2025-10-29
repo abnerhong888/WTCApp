@@ -1,5 +1,5 @@
-#ifndef __gtkaaRESOURCE_H__
-#define __gtkaaRESOURCE_H__
+#ifndef __gtkaaResource_H__
+#define __gtkaaResource_H__
 
 #include <gtkaa/resource/gtkaaIBuilder.h>
 #include <gtkaa/resource/gtkaaICssProvider.h>

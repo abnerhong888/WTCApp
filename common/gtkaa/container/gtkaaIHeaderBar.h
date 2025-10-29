@@ -1,0 +1,22 @@
+#ifndef __gtkaaIHeaderBar_H__
+#define __gtkaaIHeaderBar_H__
+
+#include <gtkaa/base/gtkaabase.h>
+
+namespace GTKAA_NAMESPACE{
+
+class IHeaderBar: public IWidget{
+
+public:
+    virtual ~IHeaderBar() = default;
+    IHeaderBar(){}
+    IHeaderBar(std::string widgetName): IWidget(widgetName){}
+public:
+    virtual gtkaa::sptrGTKWidget create(){
+        return createWidget(gtk_header_bar_new());
+    }
+};
+
+}
+
+#endif

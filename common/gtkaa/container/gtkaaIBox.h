@@ -1,5 +1,5 @@
-#ifndef __gtkaaIBOX_H__
-#define __gtkaaIBOX_H__
+#ifndef __gtkaaIBox_H__
+#define __gtkaaIBox_H__
 
 #include <gtkaa/base/gtkaabase.h>
 

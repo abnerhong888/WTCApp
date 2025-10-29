@@ -1,5 +1,5 @@
-#ifndef __gtkaaISTACK_H__
-#define __gtkaaISTACK_H__
+#ifndef __gtkaaIStack_H__
+#define __gtkaaIStack_H__
 
 #include <gtkaa/base/gtkaabase.h>
 

@@ -1,5 +1,5 @@
-#ifndef __gtkaaISPINNER_H__
-#define __gtkaaISPINNER_H__
+#ifndef __gtkaaISpinner_H__
+#define __gtkaaISpinner_H__
 
 #include <gtkaa/base/gtkaabase.h>
 

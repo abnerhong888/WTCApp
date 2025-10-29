@@ -1,5 +1,5 @@
-#ifndef __gtkaaILABEL_H__
-#define __gtkaaILABEL_H__
+#ifndef __gtkaaILabel_H__
+#define __gtkaaILabel_H__
 
 #include <gtkaa/base/gtkaabase.h>
 

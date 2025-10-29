@@ -1,5 +1,5 @@
-#ifndef __gtkaaIEVENT_H__
-#define __gtkaaIEVENT_H__
+#ifndef __gtkaaIEvent_H__
+#define __gtkaaIEvent_H__
 
 #include <gtkaa/base/gtkaaICommon.h>
 

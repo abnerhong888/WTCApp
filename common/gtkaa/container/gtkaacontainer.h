@@ -4,10 +4,16 @@
 #include <gtkaa/container/gtkaaIBox.h>
 #include <gtkaa/container/gtkaaIExpander.h>
 #include <gtkaa/container/gtkaaIFixed.h>
+#include <gtkaa/container/gtkaaIFlowBox.h>
+#include <gtkaa/container/gtkaaIFrame.h>
 #include <gtkaa/container/gtkaaIGrid.h>
+#include <gtkaa/container/gtkaaIHeaderBar.h>
+#include <gtkaa/container/gtkaaIListBox.h>
+#include <gtkaa/container/gtkaaINoteBook.h>
 #include <gtkaa/container/gtkaaIOverlay.h>
 #include <gtkaa/container/gtkaaIPaned.h>
 #include <gtkaa/container/gtkaaIRevealer.h>
+#include <gtkaa/container/gtkaaIScrolledWindow.h>
 #include <gtkaa/container/gtkaaIStack.h>
 
 #endif

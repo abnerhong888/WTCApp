@@ -6,4 +6,6 @@
 #include <gtkaa/resource/gtkaaresource.h>
 #include <gtkaa/container/gtkaacontainer.h>
 #include <gtkaa/widgets/gtkaawidget.h>
+#include <gtkaa/widgets/interaction/gtkaainteraction.h>
+#include <gtkaa/widgets/window/gtkaawindow.h>
 #endif

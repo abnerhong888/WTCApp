@@ -1,5 +1,5 @@
-#ifndef __gtkaaIWIDGET_H__
-#define __gtkaaIWIDGET_H__
+#ifndef __gtkaaIWidget_H__
+#define __gtkaaIWidget_H__
 
 #include <gtkaa/base/gtkaabase.h>
 

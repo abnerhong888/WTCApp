@@ -1,5 +1,5 @@
-#ifndef __gtkaaILEVELBAR_H__
-#define __gtkaaILEVELBAR_H__
+#ifndef __gtkaaILevelBar_H__
+#define __gtkaaILevelBar_H__
 
 #include <gtkaa/base/gtkaabase.h>
 

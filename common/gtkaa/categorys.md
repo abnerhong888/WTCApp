@@ -1,3 +1,6 @@
+# GTK4.0 Widgets Category
+
+
 # 1. Basic Display Widgets
 | Widget             | Description                                                         |
 | ------------------ | ------------------------------------------------------------------- |
@@ -10,22 +13,22 @@
 | **GtkPicture**     | Displays an image (newer replacement for `GtkImage` in some cases). |
 
 # 2. Input / Interaction Widgets
-| Widget                   | Description                                        |
-| ------------------------ | -------------------------------------------------- |
-| **GtkButton**            | Standard clickable button.                         |
-| **GtkToggleButton**      | A button that can stay pressed (“on/off”).         |
-| **GtkCheckButton**       | Checkbox-style toggle.                             |
-| **GtkSwitch**            | Modern toggle switch (on/off).                     |
-| **GtkRadioButton**       | Radio button — part of a mutually exclusive group. |
-| **GtkLinkButton**        | Button that opens a hyperlink.                     |
-| **GtkEntry**             | Single-line text input.                            |
-| **GtkPasswordEntry**     | Entry that hides the text input (for passwords).   |
-| **GtkSearchEntry**       | Entry optimized for search bars.                   |
-| **GtkSpinButton**        | Entry with up/down arrows for numeric input.       |
-| **GtkScale**             | Slider control for selecting a numeric value.      |
-| **GtkColorButton**       | Button that opens a color picker.                  |
-| **GtkFontButton**        | Button that opens a font selection dialog.         |
-| **GtkFileChooserButton** | Button that opens a file picker dialog.            |
+| Widget                            | Description                                        |
+| ------------------------          | -------------------------------------------------- |
+| **GtkButton**                     | Standard clickable button.                         |
+| **GtkToggleButton**               | A button that can stay pressed (“on/off”).         |
+| **GtkCheckButton**                | Checkbox-style toggle.                             |
+| **GtkSwitch**                     | Modern toggle switch (on/off).                     |
+| **GtkRadioButton (gtk3.0)**       | Radio button — part of a mutually exclusive group. | 
+| **GtkLinkButton**                 | Button that opens a hyperlink.                     |
+| **GtkEntry**                      | Single-line text input.                            |
+| **GtkPasswordEntry**              | Entry that hides the text input (for passwords).   |
+| **GtkSearchEntry**                | Entry optimized for search bars.                   |
+| **GtkSpinButton**                 | Entry with up/down arrows for numeric input.       |
+| **GtkScale**                      | Slider control for selecting a numeric value.      |
+| **GtkColorButton (gtk3.0)**       | Button that opens a color picker.                  |
+| **GtkFontButton (gtk3.0)**        | Button that opens a font selection dialog.         |
+| **GtkFileChooserButton (gtk3.0)** | Button that opens a file picker dialog.            |
 
 # 3. Text and Data Display Widgets
 | Widget                 | Description                                             |
