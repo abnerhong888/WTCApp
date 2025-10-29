@@ -3,7 +3,7 @@
 
 #include <gtkaa/base/ICommon.h>
 #include <gtkaa/base/IEvent.h>
-#include <gtkaa/IWindow.h>
+#include <gtkaa/widgets/window/IWindow.h>
 
 namespace GTKAA_NAMESPACE{
 

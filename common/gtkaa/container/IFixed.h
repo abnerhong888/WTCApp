@@ -1,8 +1,7 @@
 #ifndef __IFIXED_H__
 #define __IFIXED_H__
 
-#include <gtkaa/base/ICommon.h>
-#include <gtkaa/base/IWidget.h>
+#include <gtkaa/base/IBase.h>
 
 namespace GTKAA_NAMESPACE{
 

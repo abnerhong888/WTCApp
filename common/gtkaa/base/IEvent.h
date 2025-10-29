@@ -1,5 +1,5 @@
-#ifndef __IBASE_H__
-#define __IBASE_H__
+#ifndef __IEVENT_H__
+#define __IEVENT_H__
 
 #include <gtkaa/base/ICommon.h>
 

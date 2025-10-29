@@ -1,8 +1,7 @@
 #ifndef __IWIDGET_H__
 #define __IWIDGET_H__
 
-#include <gtkaa/base/ICommon.h>
-#include <gtkaa/base/IEvent.h>
+#include <gtkaa/base/IBase.h>
 
 namespace GTKAA_NAMESPACE{
 
