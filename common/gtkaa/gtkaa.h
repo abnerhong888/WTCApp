@@ -8,4 +8,5 @@
 #include <gtkaa/widgets/gtkaawidget.h>
 #include <gtkaa/widgets/interaction/gtkaainteraction.h>
 #include <gtkaa/widgets/window/gtkaawindow.h>
+#include <gtkaa/widgets/data_display/gtkaadata_display.h>
 #endif
