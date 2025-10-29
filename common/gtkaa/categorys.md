@@ -58,15 +58,15 @@
 | **GtkHeaderBar**      | Modern titlebar for windows (can hold buttons).        |
 
 # 5. Window and Top-Level Widgets
-| Widget                  | Description                                  |
-| ----------------------- | -------------------------------------------- |
-| **GtkWindow**           | Main application window.                     |
-| **GtkDialog**           | Standard dialog window.                      |
-| **GtkMessageDialog**    | Simple message popup (info, warning, error). |
-| **GtkAboutDialog**      | Pre-built “About” dialog.                    |
-| **GtkPopover**          | Floating popup anchored to a widget.         |
-| **GtkMenuButton**       | Button that opens a popover menu.            |
-| **GtkAppChooserDialog** | Dialog to pick an app to open a file.        |
+| Widget                            | Description                                  |
+| -----------------------           | -------------------------------------------- |
+| **GtkWindow**                     | Main application window.                     |
+| **GtkDialog (gtk3.0)**            | Standard dialog window.                      |
+| **GtkMessageDialog (gtk3.0)**     | Simple message popup (info, warning, error). |
+| **GtkAboutDialog**                | Pre-built “About” dialog.                    |
+| **GtkPopover**                    | Floating popup anchored to a widget.         |
+| **GtkMenuButton**                 | Button that opens a popover menu.            |
+| **GtkAppChooserDialog (gtk3.0)**  | Dialog to pick an app to open a file.        |
 
 # 6. Menus and Selectors
 | Widget              | Description                          |
