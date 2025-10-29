@@ -31,14 +31,13 @@
 | **GtkFileChooserButton (gtk3.0)** | Button that opens a file picker dialog.            |
 
 # 3. Text and Data Display Widgets
-| Widget                 | Description                                             |
-| ---------------------- | ------------------------------------------------------- |
-| **GtkTextView**        | Multi-line editable or read-only text area.             |
-| **GtkTextBuffer**      | Backing storage for a `GtkTextView`.                    |
-| **GtkTreeView**        | Displays data in tree or table form.                    |
-| **GtkListView**        | Modern replacement for list displays (GTK 4).           |
-| **GtkColumnView**      | Modern table-like view (replacement for `GtkTreeView`). |
-| **GtkEntryCompletion** | Provides autocomplete for a `GtkEntry`.                 |
+| Widget                            | Description                                             |
+| ----------------------            | ------------------------------------------------------- |
+| **GtkTextView**                   | Multi-line editable or read-only text area.             |
+| **GtkTreeView (gtk3.0)**          | Displays data in tree or table form.                    |
+| **GtkListView**                   | Modern replacement for list displays (GTK 4).           |
+| **GtkColumnView**                 | Modern table-like view (replacement for `GtkTreeView`). |
+| **GtkEntryCompletion (gtk3.0)**   | Provides autocomplete for a `GtkEntry`.                 |
 
 # 4. Containers / Layout Widgets
 | Widget                | Description                                            |
@@ -95,3 +94,5 @@
 | **GtkActionBar**       | Horizontal bar for buttons at the bottom.               |
 
 
+# ???
+| **GtkTextBuffer**      | Backing storage for a `GtkTextView`.                    |
