@@ -69,12 +69,12 @@
 | **GtkAppChooserDialog (gtk3.0)**  | Dialog to pick an app to open a file.        |
 
 # 6. Menus and Selectors
-| Widget              | Description                          |
-| ------------------- | ------------------------------------ |
-| **GtkComboBoxText** | Dropdown with text entries.          |
-| **GtkDropDown**     | New GTK 4 replacement for ComboBox.  |
-| **GtkMenuButton**   | Button that opens a menu or popover. |
-| **GtkPopoverMenu**  | Menu inside a popover window.        |
+| Widget                        | Description                          |
+| -------------------           | ------------------------------------ |
+| **GtkComboBoxText (gtk3.0)**  | Dropdown with text entries.          |
+| **GtkDropDown**               | New GTK 4 replacement for ComboBox.  |
+| **GtkMenuButton**             | Button that opens a menu or popover. |
+| **GtkPopoverMenu**            | Menu inside a popover window.        |
 
 # 7. Visual / Utility Widgets
 | Widget                                                    | Description                                |
