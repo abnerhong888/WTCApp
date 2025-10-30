@@ -52,6 +52,14 @@ namespace GTKAA_NAMESPACE{
         }
     }
 
+    template<>
+    void object_release(GtkWidget* obj){
+        if(G_IS_OBJECT(obj)){
+            INFO_LOG("release [%s], name = %s\n", g_type_name(G_OBJECT_TYPE(obj)), gtk_widget_get_name(obj));
+            g_object_unref(obj);
+        }
+    }
+
     template<typename T>
     sptr<T> make_ptr(T* v){
         INFO_LOG("make ptr %s\n", g_type_name(G_OBJECT_TYPE(v)));
@@ -61,17 +69,22 @@ namespace GTKAA_NAMESPACE{
     // make ptr from gtk builder, no need to release
     template<typename T>
     sptr<T> make_ptr_from_builder(T* v){
-        INFO_LOG("make ptr from builder %s\n", g_type_name(G_OBJECT_TYPE(v)));
+        INFO_LOG("make ptr from builder [%s]\n", g_type_name(G_OBJECT_TYPE(v)));
         return sptr<T>(v, [](T* v){});
     }
 
     // make ptr by gtk object new
     template<typename T>
     sptr<T> make_ptr_release(T* v){
-        INFO_LOG("make ptr release %s\n", g_type_name(G_OBJECT_TYPE(v)));
+        INFO_LOG("make ptr release [%s]\n", g_type_name(G_OBJECT_TYPE(v)));
         return sptr<T>(v, object_release<T>);
     }
 
+    template<>
+    sptr<GtkWidget> make_ptr_release(GtkWidget* v){
+        INFO_LOG("make ptr release [%s], name = %s\n", g_type_name(G_OBJECT_TYPE(v)), gtk_widget_get_name(v));
+        return sptr<GtkWidget>(v, object_release<GtkWidget>);
+    }
 }
 
 

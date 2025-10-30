@@ -45,7 +45,7 @@ public:
         // );
         
         return gtkaa::make_ptr_from_builder(
-            (T*)gtk_builder_get_object(get(), name.c_str())
+            (T*)gtk_builder_get_object(GTK_BUILDER(get()), name.c_str())
         );
     }
 };

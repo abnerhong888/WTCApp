@@ -16,15 +16,17 @@ public:
         m_widget_name = widgetName;
     }
     virtual gtkaa::sptrGTKWidget  createWidget(GtkWidget* widget){
+        if(!m_widget_name.empty())
+            gtk_widget_set_name(widget, m_widget_name.c_str());
+
         if(!m_widget) 
             m_widget = gtkaa::make_ptr_release(widget);
 
-        if(!m_widget_name.empty())
-            gtk_widget_set_name(GTK_WIDGET(m_widget.get()), m_widget_name.c_str());
-
         return m_widget;
     }
-    virtual gpointer get() { return m_widget.get(); }
+    virtual gpointer get() { 
+        return m_widget.get(); 
+    }
 };
 
 }
