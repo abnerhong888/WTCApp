@@ -6,11 +6,7 @@
 namespace GTKAA_NAMESPACE{
 
 class IFlowBox: public IWidget{
-
-public:
-    virtual ~IFlowBox() = default;
-    IFlowBox(){}
-    IFlowBox(std::string widgetName): IWidget(widgetName){}
+INHERIT_FROM_IWIDGET(IFlowBox)
 public:
     virtual gtkaa::sptrGTKWidget create(){
         return createWidget(gtk_flow_box_new());

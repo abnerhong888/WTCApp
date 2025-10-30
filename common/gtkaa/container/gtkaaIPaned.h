@@ -6,11 +6,7 @@
 namespace GTKAA_NAMESPACE{
 
 class IPaned: public IWidget{
-
-public:
-    virtual ~IPaned() = default;
-    IPaned(){}
-    IPaned(std::string widgetName): IWidget(widgetName){}
+INHERIT_FROM_IWIDGET(IPaned)
 public:
     virtual gtkaa::sptrGTKWidget create(GtkOrientation orientation){
         return createWidget(gtk_paned_new(orientation));

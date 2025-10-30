@@ -6,10 +6,8 @@
 namespace GTKAA_NAMESPACE{
 
 class IToggleButton: public IWidget{
+INHERIT_FROM_IWIDGET(IToggleButton)
 public:
-    virtual ~IToggleButton() = default;
-    IToggleButton(){ }
-    IToggleButton(std::string widgetName): IWidget(widgetName){}
     virtual gtkaa::sptrGTKWidget create(){
         return createWidget(gtk_toggle_button_new());
     }

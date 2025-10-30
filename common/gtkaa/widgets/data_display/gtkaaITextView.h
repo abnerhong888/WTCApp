@@ -6,10 +6,8 @@
 namespace GTKAA_NAMESPACE{
 
 class ITextView: public IWidget{
+INHERIT_FROM_IWIDGET(ITextView)
 public:
-    virtual ~ITextView() = default;
-    ITextView(){ }
-    ITextView(std::string widgetName): IWidget(widgetName){}
     virtual gtkaa::sptrGTKWidget create(){
         return createWidget(gtk_text_view_new());
     }

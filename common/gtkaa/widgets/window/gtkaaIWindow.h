@@ -6,11 +6,8 @@
 namespace GTKAA_NAMESPACE{
 
 class IWindow: public IWidget{
-
+INHERIT_FROM_IWIDGET(IWindow)
 public:
-    virtual ~IWindow() = default;
-    IWindow(){}
-    IWindow(std::string widgetName): IWidget(widgetName){}
     virtual void activate(GObject *obj, gpointer user_data){}
 public:
     virtual gtkaa::sptrGTKWidget createWindow(GtkApplication* app){

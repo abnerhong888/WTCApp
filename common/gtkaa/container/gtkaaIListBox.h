@@ -6,11 +6,7 @@
 namespace GTKAA_NAMESPACE{
 
 class IListBox: public IWidget{
-
-public:
-    virtual ~IListBox() = default;
-    IListBox(){}
-    IListBox(std::string widgetName): IWidget(widgetName){}
+INHERIT_FROM_IWIDGET(IListBox)
 public:
     virtual gtkaa::sptrGTKWidget create(){
         return createWidget(gtk_list_box_new());

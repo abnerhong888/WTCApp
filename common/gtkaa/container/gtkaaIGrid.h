@@ -6,11 +6,7 @@
 namespace GTKAA_NAMESPACE{
 
 class IGrid: public IWidget{
-
-public:
-    virtual ~IGrid() = default;
-    IGrid(){}
-    IGrid(std::string widgetName): IWidget(widgetName){}
+INHERIT_FROM_IWIDGET(IGrid)
 public:
     virtual gtkaa::sptrGTKWidget create(){
         return createWidget(gtk_stack_new());

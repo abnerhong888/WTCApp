@@ -66,9 +66,8 @@ namespace GTKAA_NAMESPACE{
         return sptr<T>(v);
     }
 
-    // make ptr from gtk builder, no need to release
     template<typename T>
-    sptr<T> make_ptr_from_builder(T* v){
+    sptr<T> make_ptr_no_release(T* v){
         INFO_LOG("make ptr from builder [%s]\n", g_type_name(G_OBJECT_TYPE(v)));
         return sptr<T>(v, [](T* v){});
     }

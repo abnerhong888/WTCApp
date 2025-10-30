@@ -6,11 +6,7 @@
 namespace GTKAA_NAMESPACE{
 
 class IOverlay: public IWidget{
-
-public:
-    virtual ~IOverlay() = default;
-    IOverlay(){}
-    IOverlay(std::string widgetName): IWidget(widgetName){}
+INHERIT_FROM_IWIDGET(IOverlay)
 public:
     virtual gtkaa::sptrGTKWidget create(){
         return createWidget(gtk_overlay_new());

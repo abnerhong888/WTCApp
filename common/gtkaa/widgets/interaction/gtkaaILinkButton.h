@@ -7,10 +7,8 @@
 namespace GTKAA_NAMESPACE{
 
 class ILinkButton: public IWidget{
+INHERIT_FROM_IWIDGET(ILinkButton)
 public:
-    virtual ~ILinkButton() = default;
-    ILinkButton(){ }
-    ILinkButton(std::string widgetName): IWidget(widgetName){}
     virtual gtkaa::sptrGTKWidget create(std::string uri){
         return createWidget(gtk_link_button_new(uri.c_str()));
     }

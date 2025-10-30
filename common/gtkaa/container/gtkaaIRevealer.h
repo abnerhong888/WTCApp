@@ -6,11 +6,7 @@
 namespace GTKAA_NAMESPACE{
 
 class IRevealer: public IWidget{
-
-public:
-    virtual ~IRevealer() = default;
-    IRevealer(){}
-    IRevealer(std::string widgetName): IWidget(widgetName){}
+INHERIT_FROM_IWIDGET(IRevealer)
 public:
     virtual gtkaa::sptrGTKWidget create(){
         return createWidget(gtk_revealer_new());

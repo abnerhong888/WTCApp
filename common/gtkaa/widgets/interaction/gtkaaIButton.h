@@ -6,10 +6,8 @@
 namespace GTKAA_NAMESPACE{
 
 class IButton: public IWidget{
+INHERIT_FROM_IWIDGET(IButton)
 public:
-    virtual ~IButton() = default;
-    IButton(){ }
-    IButton(std::string widgetName): IWidget(widgetName){}
     virtual gtkaa::sptrGTKWidget create(){
         return createWidget(gtk_button_new());
     }

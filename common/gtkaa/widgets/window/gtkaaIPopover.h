@@ -6,10 +6,8 @@
 namespace GTKAA_NAMESPACE{
 
 class IPopover: public IWidget{
+INHERIT_FROM_IWIDGET(IPopover)
 public:
-    virtual ~IPopover() = default;
-    IPopover(){ }
-    IPopover(std::string widgetName): IWidget(widgetName){}
     virtual gtkaa::sptrGTKWidget create(){
         return createWidget(gtk_popover_new());
     }

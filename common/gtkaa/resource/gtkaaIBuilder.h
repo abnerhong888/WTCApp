@@ -44,7 +44,7 @@ public:
         //     GTK_WINDOW( gtk_builder_get_object(m_builder.get(), "main_window") )
         // );
         
-        return gtkaa::make_ptr_from_builder(
+        return gtkaa::make_ptr_no_release(
             (T*)gtk_builder_get_object(GTK_BUILDER(get()), name.c_str())
         );
     }

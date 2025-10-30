@@ -6,10 +6,8 @@
 namespace GTKAA_NAMESPACE{
 
 class IPicture: public IWidget{
+INHERIT_FROM_IWIDGET(IPicture)
 public:
-    virtual ~IPicture() = default;
-    IPicture(){ }
-    IPicture(std::string widgetName): IWidget(widgetName){}
     virtual gtkaa::sptrGTKWidget create(){
         return createWidget(gtk_picture_new());
     }

@@ -6,10 +6,8 @@
 namespace GTKAA_NAMESPACE{
 
 class IAboutDialog: public IWidget{
+INHERIT_FROM_IWIDGET(IAboutDialog)
 public:
-    virtual ~IAboutDialog() = default;
-    IAboutDialog(){ }
-    IAboutDialog(std::string widgetName): IWidget(widgetName){}
     virtual gtkaa::sptrGTKWidget create(){
         return createWidget(gtk_about_dialog_new());
     }

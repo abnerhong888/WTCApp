@@ -6,10 +6,8 @@
 namespace GTKAA_NAMESPACE{
 
 class IDropDown: public IWidget{
+INHERIT_FROM_IWIDGET(IDropDown)
 public:
-    virtual ~IDropDown() = default;
-    IDropDown(){ }
-    IDropDown(std::string widgetName): IWidget(widgetName){}
     virtual gtkaa::sptrGTKWidget create(GListModel *model, GtkExpression *expression){
         return createWidget(gtk_drop_down_new(model, expression));
     }

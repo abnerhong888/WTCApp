@@ -6,10 +6,8 @@
 namespace GTKAA_NAMESPACE{
 
 class IListView: public IWidget{
+INHERIT_FROM_IWIDGET(IListView)
 public:
-    virtual ~IListView() = default;
-    IListView(){ }
-    IListView(std::string widgetName): IWidget(widgetName){}
     virtual gtkaa::sptrGTKWidget create(GtkSelectionModel *model, GtkListItemFactory *factory){
         return createWidget(gtk_list_view_new(model, factory));
     }

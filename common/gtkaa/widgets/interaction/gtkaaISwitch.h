@@ -6,10 +6,8 @@
 namespace GTKAA_NAMESPACE{
 
 class ISwitch: public IWidget{
+INHERIT_FROM_IWIDGET(ISwitch)
 public:
-    virtual ~ISwitch() = default;
-    ISwitch(){ }
-    ISwitch(std::string widgetName): IWidget(widgetName){}
     virtual gtkaa::sptrGTKWidget create(){
         return createWidget(gtk_switch_new());
     }

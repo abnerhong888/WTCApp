@@ -6,10 +6,8 @@
 namespace GTKAA_NAMESPACE{
 
 class ISeparator: public IWidget{
+INHERIT_FROM_IWIDGET(ISeparator)
 public:
-    virtual ~ISeparator() = default;
-    ISeparator(){ }
-    ISeparator(std::string widgetName): IWidget(widgetName){}
     virtual gtkaa::sptrGTKWidget create(GtkOrientation orientation){
         return createWidget(gtk_separator_new(orientation));
     }

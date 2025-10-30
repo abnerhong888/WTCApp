@@ -6,10 +6,8 @@
 namespace GTKAA_NAMESPACE{
 
 class ILevelBar: public IWidget{
+INHERIT_FROM_IWIDGET(ILevelBar)
 public:
-    virtual ~ILevelBar() = default;
-    ILevelBar(){ }
-    ILevelBar(std::string widgetName): IWidget(widgetName){}
     virtual gtkaa::sptrGTKWidget create(){
         return createWidget(gtk_level_bar_new());
     }

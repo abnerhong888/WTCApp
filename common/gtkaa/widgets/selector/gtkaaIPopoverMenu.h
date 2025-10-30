@@ -7,10 +7,8 @@
 namespace GTKAA_NAMESPACE{
 
 class IPopoverMenu: public IWidget{
+INHERIT_FROM_IWIDGET(IPopoverMenu)
 public:
-    virtual ~IPopoverMenu() = default;
-    IPopoverMenu(){ }
-    IPopoverMenu(std::string widgetName): IWidget(widgetName){}
     virtual gtkaa::sptrGTKWidget create(GMenuModel *model){
         return createWidget(gtk_popover_menu_new_from_model(model));
     }
