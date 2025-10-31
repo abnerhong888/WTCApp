@@ -39,7 +39,7 @@ public:
         m_paned.set_start_child(&m_label);
         m_paned.set_end_child(&m_label2);
         m_paned.set_position(150);
-        m_paned.event_handler += {"notify::position", on_paned_position_changed, NULL};
+        m_paned.event_handler += gtkaa::signal("notify::position", &WTCWindow::on_paned_position_changed, this);
         set_child(&m_paned);
 
         // BUILDER_LOAD(m_builder, MAIN_WINDOW_UI);
@@ -51,8 +51,8 @@ public:
         set_application(GTK_APPLICATION(obj));
         present();
     }
-    static void on_paned_position_changed(GObject *obj, gpointer user_data){
-        printf("456 0x%016lx\n", (uint64_t)user_data); 
+    void on_paned_position_changed(){
+        printf("456 \n"); 
         // reinterpret_cast<IWindow*>(user_data)->paned_position_changed(obj, user_data);
     }
 };

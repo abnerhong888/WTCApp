@@ -19,7 +19,7 @@ public:
             return -1;
         }
         
-        event_handler += {"activate", on_activate, &m_main_window};
+        event_handler += gtkaa::signal("activate", &WTCApp::on_activate, this);
         return 0;
     }
     
@@ -27,9 +27,8 @@ public:
         return gtkaa::IApp::run(argc, argv);
     }
 public:
-    static void on_activate(GObject *obj, gpointer user_data){
-        WTCWindow* window = reinterpret_cast<WTCWindow*>(user_data);
-        window->activate(obj, user_data);
+    void on_activate(){
+        m_main_window.activate(G_OBJECT(get()), this);
     }
 private:
     WTCWindow m_main_window{"main_window"};

@@ -17,20 +17,6 @@ namespace GTKAA_NAMESPACE{
 
     #define INFO_LOG(fmt, ...) printf("[gtkaa] " fmt, ##__VA_ARGS__)
 
-    
-    typedef void  (*EventCallback) (GObject*, gpointer);
-
-    struct EventData{
-        EventCallback callback;
-        std::string signal_name;
-        gpointer user_data;
-
-        EventData(std::string signal_name, EventCallback callback, gpointer user_data){
-            this->callback = callback;
-            this->signal_name = signal_name;
-            this->user_data = user_data;
-        }
-    };
 }
 
 
