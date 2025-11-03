@@ -9,8 +9,26 @@ namespace GTKAA_NAMESPACE{
 class IPopoverMenu: public IWidget{
 INHERIT_FROM_IWIDGET(IPopoverMenu)
 public:
-    virtual gtkaa::sptrGTKWidget create(GMenuModel *model){
+    virtual gtkaa::sptrGTKWidget create(GMenuModel *model = nullptr){
         return createWidget(gtk_popover_menu_new_from_model(model));
+    }
+    virtual void set_menu_model(GMenuModel *model){
+        gtk_popover_menu_set_menu_model(GTK_POPOVER_MENU(get()), model);
+    }
+    virtual GMenuModel* get_menu_model(){
+        return gtk_popover_menu_get_menu_model(GTK_POPOVER_MENU(get()));
+    }
+    virtual void set_flags(GtkPopoverMenuFlags flags){
+        gtk_popover_menu_set_flags(GTK_POPOVER_MENU(get()), flags);
+    }
+    virtual GtkPopoverMenuFlags get_flags(){
+        return gtk_popover_menu_get_flags(GTK_POPOVER_MENU(get()));
+    }
+    virtual gboolean add_child(IWidget *child, const char *id){
+        return gtk_popover_menu_add_child(GTK_POPOVER_MENU(get()), GTK_WIDGET(child->get()), id);
+    }
+    virtual gboolean remove_child(IWidget *child){
+        return gtk_popover_menu_remove_child(GTK_POPOVER_MENU(get()), GTK_WIDGET(child->get()));
     }
 };
 
