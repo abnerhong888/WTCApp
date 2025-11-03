@@ -10,13 +10,13 @@ INHERIT_FROM_IWIDGET(IWindow)
 public:
     virtual void activate(GObject *obj, gpointer user_data){}
 public:
-    virtual gtkaa::sptrGTKWidget createWindow(GtkApplication* app){
+    virtual gtkaa::sptrGTKWidget create(GtkApplication* app){
         return createWidget(gtk_application_window_new(app));
     }
-    virtual gtkaa::sptrGTKWidget createWindow(){
+    virtual gtkaa::sptrGTKWidget create(){
         return createWidget(gtk_window_new());
     }
-    virtual gtkaa::sptrGTKWidget createWindow(gtkaa::sptrGTKWidget widget){
+    virtual gtkaa::sptrGTKWidget create(gtkaa::sptrGTKWidget widget){
         m_widget = widget;
         return m_widget;
     }

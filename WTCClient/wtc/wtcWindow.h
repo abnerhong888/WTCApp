@@ -26,7 +26,7 @@ public:
     gtkaa::ILabel m_label2;
 public:
     void activate(GObject *obj, gpointer user_data) override{
-        createWindow(GTK_APPLICATION(obj));     
+        create(GTK_APPLICATION(obj));     
         set_title(title);
         set_default_size(width, height);
 
@@ -39,11 +39,11 @@ public:
         m_paned.set_start_child(&m_label);
         m_paned.set_end_child(&m_label2);
         m_paned.set_position(150);
-        m_paned.event_handler += gtkaa::signal("notify::position", &WTCWindow::on_paned_position_changed, this);
+        m_paned.event += gtkaa::g_event("notify::position", &WTCWindow::on_paned_position_changed, this);
         set_child(&m_paned);
 
         // BUILDER_LOAD(m_builder, MAIN_WINDOW_UI);
-        // createWindow(m_builder.get_object<GtkWidget>("main_window"));
+        // create(m_builder.get_object<GtkWidget>("main_window"));
         CSS_LOAD(m_css_provider, MAIN_WINDOW_CSS);
         m_css_provider.apply();
 

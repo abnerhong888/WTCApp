@@ -22,18 +22,19 @@ struct EventData{
 };
 
 template<typename T>
-EventData<T> signal(std::string signal_name, EventCallback<T> callback, gpointer user_data){
+EventData<T> g_event(std::string signal_name, EventCallback<T> callback, gpointer user_data){
     return EventData<T>(signal_name, callback, user_data);
 }
 
-std::unordered_map<gpointer, std::function<void()>> event_callbacks;
+static std::unordered_map<gpointer, std::function<void()>> g_event_map;
 
-void connect(gpointer user_data, std::function<void()> func){
-    event_callbacks[user_data] = func;
+static void g_map_set(gpointer obj, std::function<void()> callback){
+    g_event_map[obj] = callback;
 }
-static void global_event_callback(GObject *obj, gpointer user_data){
-    if(event_callbacks.count(obj)){
-        event_callbacks[obj]();
+
+static void g_event_callback(GObject *obj, gpointer user_data){
+    if(g_event_map.count(obj)){
+        g_event_map[obj]();
     }
 }
 
@@ -49,8 +50,10 @@ public:
 
         template<typename T>
         void operator+= (EventData<T>&& data){
-            connect(event->get(), [data](){ (reinterpret_cast<T*>(data.user_data)->*data.callback)(); });
-            g_signal_connect(event->get(), data.signal_name.c_str(), GCallback(global_event_callback), data.user_data);
+            g_map_set(event->get(), [data](){ 
+                (reinterpret_cast<T*>(data.user_data)->*data.callback)();
+            });
+            g_signal_connect(event->get(), data.signal_name.c_str(), GCallback(g_event_callback), data.user_data);
         }
         
         template<typename T>
@@ -59,8 +62,8 @@ public:
         }
     };
 public:
-    // How to use: event_handler += {"signal_name", callback, user_data};
-    EventHandler event_handler{this};
+    // How to use: event += gtkaa::g_event("signal_name", &class::callback, user_data);
+    EventHandler event{this};
 public:
     virtual ~IEvent() = default;
     virtual gpointer get() = 0;

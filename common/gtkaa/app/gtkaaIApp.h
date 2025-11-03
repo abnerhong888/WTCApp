@@ -12,10 +12,14 @@ public:
     std::string m_app_id;
 public:
     virtual ~IApp() = default;
+    IApp() = default;
+    IApp(std::string app_id){
+        createApp(app_id);
+    }
     virtual gpointer get(){
         return m_app.get();
     }
-    virtual int init(std::string app_id){
+    virtual int createApp(std::string app_id){
         m_app_id = app_id;
         GtkApplication* app = gtk_application_new(app_id.c_str(), G_APPLICATION_DEFAULT_FLAGS);
 
