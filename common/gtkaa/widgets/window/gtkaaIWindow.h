@@ -9,7 +9,7 @@ namespace GTKAA_NAMESPACE{
 class IWindow: public IWidget{
 INHERIT_FROM_IWIDGET(IWindow)
 public:
-    virtual void activate(GObject *obj, gpointer user_data){}
+    virtual void on_activate(GObject *obj, gpointer user_data){}
 public:
     virtual gtkaa::sptrGTKWidget create(GtkApplication* app){
         return createWidget(gtk_application_window_new(app));

@@ -2,15 +2,25 @@
 #define __WTCWINDOW_H__
 
 #include <gtkaa/gtkaa.h>
-#include "gio/gio.h"
-#include "gio/gmenumodel.h"
-#include "gtkaa/container/gtkaaIGrid.h"
-#include "gtkaa/container/gtkaaIHeaderBar.h"
-#include "gtkaa/widgets/interaction/gtkaaIButton.h"
-#include "gtkaa/widgets/window/gtkaaIMenuButton.h"
-#include "gtkaa/widgets/window/gtkaaIPopover.h"
 #include "wtcCommon.h"
+#include "wtcMenuBtn.h"
 
+static void on_open_clicked(GSimpleAction *action, GVariant *parameter, gpointer user_data) {
+    g_print("Open clicked\n");
+}
+
+static void on_quit_clicked(GSimpleAction *action, GVariant *parameter, gpointer user_data) {
+    g_print("Quit clicked\n");
+    gtk_window_close(GTK_WINDOW(user_data));
+}
+static void on_menu_button_clicked(GtkButton *button, gpointer user_data)
+{
+    GtkPopover *popover = GTK_POPOVER(user_data);
+    gtk_popover_popup(popover); // show popover
+    // gtk_popover_present(popover); // show popover
+    
+    g_print("Open clicked %p\n", popover);
+}
 class WTCWindow : public gtkaa::IWindow{
 public:
     WTCWindow(): gtkaa::IWindow(""){
@@ -35,10 +45,11 @@ public:
     
     gtkaa::IMenuButton m_menu_button;
     gtkaa::IPopoverMenu m_popover_menu;
-    gtkaa::IButton m_button;
     gtkaa::IHeaderBar m_header_bar;
+
+    WTCMenuBtn m_menu_btn2;
 public:
-    void activate(GObject *obj, gpointer user_data) override{
+    void on_activate(GObject *obj, gpointer user_data) override{
         create(GTK_APPLICATION(obj));     
         set_title(title);
         set_default_size(width, height);
@@ -75,6 +86,8 @@ public:
     void header_bar_menu(){
         m_menu_button.create();
         m_menu_button.set_label("Menu");
+        m_menu_button.set_always_show_arrow(FALSE);
+
 
         GMenu* menu_model = g_menu_new();
         g_menu_append(menu_model, "Open", "app.open");
@@ -83,15 +96,61 @@ public:
 
         m_popover_menu.create(G_MENU_MODEL(menu_model));
         g_object_unref(menu_model);
-        m_button.create();
-        m_button.set_label("Button");
-        m_popover_menu.add_child(&m_button, "Button");
         
         m_menu_button.set_popover(&m_popover_menu);
 
         m_header_bar.create();
         set_header_bar(&m_header_bar);
         m_header_bar.pack_start(&m_menu_button);
+
+        GSimpleActionGroup *actions = g_simple_action_group_new();
+
+        GSimpleAction *open_action = g_simple_action_new("open", NULL);
+        g_signal_connect(open_action, "activate", G_CALLBACK(on_open_clicked), NULL);
+        g_action_map_add_action(G_ACTION_MAP(actions), G_ACTION(open_action));
+
+        GSimpleAction *quit_action = g_simple_action_new("quit", NULL);
+        g_signal_connect(quit_action, "activate", G_CALLBACK(on_quit_clicked), GTK_WINDOW(get()));
+        g_action_map_add_action(G_ACTION_MAP(actions), G_ACTION(quit_action));
+
+        gtk_widget_insert_action_group(GTK_WIDGET(get()), "app", G_ACTION_GROUP(actions));
+
+
+
+        // // Create popover content
+        // GtkWidget *popover = gtk_popover_new();
+        // GtkWidget *vbox = gtk_box_new(GTK_ORIENTATION_VERTICAL, 0);
+        // gtk_box_append(GTK_BOX(vbox), gtk_button_new_with_label("Open"));
+        // gtk_box_append(GTK_BOX(vbox), gtk_button_new_with_label("Settings"));
+        // gtk_popover_set_child(GTK_POPOVER(popover), vbox);
+
+        // // Create text-only button
+        // GtkWidget *text_button = gtk_button_new_with_label("Menu"); 
+        // gtk_widget_add_css_class(text_button, "flat"); // optional
+
+        // // Connect button -> popover
+        // g_signal_connect(text_button, "clicked", G_CALLBACK(on_menu_button_clicked), popover);
+
+        // // --- Connect popover to button ---
+        // gtk_popover_set_has_arrow(GTK_POPOVER(popover), FALSE);
+        // gtk_popover_set_position(GTK_POPOVER(popover), GTK_POS_BOTTOM);
+        // gtk_widget_set_parent(GTK_WIDGET(popover), text_button);
+        
+        // // Add to headerbar
+        // gtk_header_bar_pack_end(GTK_HEADER_BAR(m_header_bar.get()), text_button);
+
+        m_menu_btn2.create("Menu2");
+        m_menu_btn2.add_button("OPEN", [](){
+            g_print("OPEN\n");
+        });
+        m_menu_btn2.add_button("SAVE", [](){
+            g_print("SAVE\n");
+        });
+        m_menu_btn2.add_button("QUIT", [](){
+            g_print("QUIT\n");
+        });
+        m_header_bar.pack_end(&m_menu_btn2);
+
     }
 
     void on_paned_position_changed(){

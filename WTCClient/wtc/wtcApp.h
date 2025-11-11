@@ -23,7 +23,7 @@ public:
     }
 public:
     void on_activate(){
-        m_main_window.activate(G_OBJECT(get()), this);
+        m_main_window.on_activate(G_OBJECT(get()), this);
     }
 private:
     WTCWindow m_main_window{"main_window"};

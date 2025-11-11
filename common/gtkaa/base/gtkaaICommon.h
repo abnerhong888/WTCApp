@@ -67,7 +67,7 @@ namespace GTKAA_NAMESPACE{
 
     template<>
     sptr<GtkWidget> make_ptr_release(GtkWidget* v){
-        INFO_LOG("make ptr release [%s], name = %s\n", g_type_name(G_OBJECT_TYPE(v)), gtk_widget_get_name(v));
+        INFO_LOG("make ptr release [%s], name = %s, %p\n", g_type_name(G_OBJECT_TYPE(v)), gtk_widget_get_name(v), v);
         return sptr<GtkWidget>(v, object_release<GtkWidget>);
     }
 }
