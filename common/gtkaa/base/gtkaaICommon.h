@@ -27,21 +27,14 @@ namespace GTKAA_NAMESPACE{
     using sptrGTKCssProvider = sptr<GtkCssProvider>;
     using sptrGTKApp = sptr<GtkApplication>;
     using sptrGTKWidget = sptr<GtkWidget>;
+    using sptrGTKEventController = sptr<GtkEventController>;
 
 
 
     template<typename T>
     void object_release(T* obj){
         if(G_IS_OBJECT(obj)){
-            INFO_LOG("release %s\n", g_type_name(G_OBJECT_TYPE(obj)));
-            g_object_unref(obj);
-        }
-    }
-
-    template<>
-    void object_release(GtkWidget* obj){
-        if(G_IS_OBJECT(obj)){
-            INFO_LOG("release [%s], name = %s\n", g_type_name(G_OBJECT_TYPE(obj)), gtk_widget_get_name(obj));
+            INFO_LOG("unref [%s], addr = %p\n", g_type_name(G_OBJECT_TYPE(obj)), obj);
             g_object_unref(obj);
         }
     }
@@ -53,23 +46,24 @@ namespace GTKAA_NAMESPACE{
     }
 
     template<typename T>
-    sptr<T> make_ptr_no_release(T* v){
-        INFO_LOG("make ptr from builder [%s]\n", g_type_name(G_OBJECT_TYPE(v)));
+    sptr<T> make_ptr_no_unref(T* v){
+        INFO_LOG("make ptr no unref [%s]\n", g_type_name(G_OBJECT_TYPE(v)));
         return sptr<T>(v, [](T* v){});
+    }
+
+    template<>
+    sptr<GtkWidget> make_ptr_no_unref(GtkWidget* v){
+        INFO_LOG("make ptr widget [%s], name = %s, addr = %p\n", g_type_name(G_OBJECT_TYPE(v)), gtk_widget_get_name(v), v);
+        return sptr<GtkWidget>(v, [](GtkWidget* v){});
     }
 
     // make ptr by gtk object new
     template<typename T>
-    sptr<T> make_ptr_release(T* v){
-        INFO_LOG("make ptr release [%s]\n", g_type_name(G_OBJECT_TYPE(v)));
+    sptr<T> make_ptr_unref(T* v){
+        INFO_LOG("make ptr unref [%s] addr = %p\n", g_type_name(G_OBJECT_TYPE(v)), v);
         return sptr<T>(v, object_release<T>);
     }
 
-    template<>
-    sptr<GtkWidget> make_ptr_release(GtkWidget* v){
-        INFO_LOG("make ptr release [%s], name = %s, %p\n", g_type_name(G_OBJECT_TYPE(v)), gtk_widget_get_name(v), v);
-        return sptr<GtkWidget>(v, object_release<GtkWidget>);
-    }
 }
 
 

@@ -6,7 +6,7 @@
 namespace GTKAA_NAMESPACE{
 
 class IBox: public IWidget{
-INHERIT_FROM_IWIDGET(IBox)
+INHERIT_FROM(IBox, IWidget)
 public:
     virtual gtkaa::sptrGTKWidget create(GtkOrientation orientation, int spacing){
         return createWidget(gtk_box_new(orientation, spacing));

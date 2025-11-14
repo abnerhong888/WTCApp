@@ -7,7 +7,7 @@
 namespace GTKAA_NAMESPACE{
 
 class IWindow: public IWidget{
-INHERIT_FROM_IWIDGET(IWindow)
+INHERIT_FROM(IWindow, IWidget)
 public:
     virtual void on_activate(GObject *obj, gpointer user_data){}
 public:

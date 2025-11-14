@@ -6,7 +6,7 @@
 namespace GTKAA_NAMESPACE{
 
 class INoteBook: public IWidget{
-INHERIT_FROM_IWIDGET(INoteBook)
+INHERIT_FROM(INoteBook, IWidget)
 public:
     virtual gtkaa::sptrGTKWidget create(){
         return createWidget(gtk_notebook_new());

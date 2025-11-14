@@ -6,7 +6,7 @@
 namespace GTKAA_NAMESPACE{
 
 class IAboutDialog: public IWidget{
-INHERIT_FROM_IWIDGET(IAboutDialog)
+INHERIT_FROM(IAboutDialog, IWidget)
 public:
     virtual gtkaa::sptrGTKWidget create(){
         return createWidget(gtk_about_dialog_new());

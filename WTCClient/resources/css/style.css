@@ -1,3 +1,7 @@
+/* define color*/
+@define-color color_menu_button_hover #8b8b8b;
+@define-color color_menu_item_button_hover #8b8b8b;
+
 /* GTK Label */
 label {
     color: #ddd8d8; /* Red color using hex code */
@@ -6,4 +10,48 @@ label {
 /* specific element with id */
 #main_window {
     background-color: #5d676e;
+}
+
+/* custom menu button css class*/
+.wtc-menu-button {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+.wtc-menu-button:hover {
+  background: @color_menu_button_hover;
+}
+
+.wtc-menu-button:active {
+  background: @color_menu_button_hover;
+}
+
+
+/* custom menu item button css class*/
+.wtc-menu-item-button {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+.wtc-menu-item-button:hover {
+  background: @color_menu_item_button_hover;
+}
+
+.wtc-menu-item-button:active {
+  background: @color_menu_item_button_hover;
+}
+
+/* custom menu button popover css class*/
+.wtc-menu-button-popover {
+  background: transparent;
+}
+
+/* custom menu button separator css class*/
+.wtc-menu-item-separator {
+    background-color: #888888;   /* line color */
+    min-height: 2px;             /* line thickness */
+    margin-top: 4px;
+    margin-bottom: 4px;
 }

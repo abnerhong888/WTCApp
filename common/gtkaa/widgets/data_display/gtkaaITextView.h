@@ -6,7 +6,7 @@
 namespace GTKAA_NAMESPACE{
 
 class ITextView: public IWidget{
-INHERIT_FROM_IWIDGET(ITextView)
+INHERIT_FROM(ITextView, IWidget)
 public:
     virtual gtkaa::sptrGTKWidget create(){
         return createWidget(gtk_text_view_new());

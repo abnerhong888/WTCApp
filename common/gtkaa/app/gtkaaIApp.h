@@ -23,7 +23,7 @@ public:
         m_app_id = app_id;
         GtkApplication* app = gtk_application_new(app_id.c_str(), G_APPLICATION_DEFAULT_FLAGS);
 
-        m_app = make_ptr_release<GtkApplication>(app);
+        m_app = make_ptr_unref<GtkApplication>(app);
         return 0;
     }
     virtual int run(int argc, char **argv){

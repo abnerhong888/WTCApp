@@ -6,7 +6,7 @@
 namespace GTKAA_NAMESPACE{
 
 class IScrolledWindow: public IWidget{
-INHERIT_FROM_IWIDGET(IScrolledWindow)
+INHERIT_FROM(IScrolledWindow, IWidget)
 public:
     virtual gtkaa::sptrGTKWidget create(){
         return createWidget(gtk_scrolled_window_new());

@@ -6,7 +6,7 @@
 namespace GTKAA_NAMESPACE{
 
 class IButton: public IWidget{
-INHERIT_FROM_IWIDGET(IButton)
+INHERIT_FROM(IButton, IWidget)
 public:
     virtual gtkaa::sptrGTKWidget create(std::string label = ""){
         if(!label.empty())
@@ -22,8 +22,8 @@ public:
     virtual void set_icon_name(const char *icon_name){
         gtk_button_set_icon_name(GTK_BUTTON(get()), icon_name);
     }
-    virtual void set_child(GtkWidget *child){
-        gtk_button_set_child(GTK_BUTTON(get()), child);
+    virtual void set_child(IWidget *child){
+        gtk_button_set_child(GTK_BUTTON(get()), GTK_WIDGET(child->get()));
     }
     virtual IWidget get_child(){
         return { gtk_button_get_child(GTK_BUTTON(get())) };

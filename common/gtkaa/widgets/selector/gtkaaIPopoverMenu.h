@@ -2,14 +2,18 @@
 #define __gtkaaIPopoverMenu_H__
 
 #include "gtk/gtk.h"
+#include "gtkaa/widgets/window/gtkaaIPopover.h"
 #include <gtkaa/base/gtkaabase.h>
 
 namespace GTKAA_NAMESPACE{
 
-class IPopoverMenu: public IWidget{
-INHERIT_FROM_IWIDGET(IPopoverMenu)
+class IPopoverMenu: public IPopover{
+INHERIT_FROM(IPopoverMenu, IPopover)
 public:
-    virtual gtkaa::sptrGTKWidget create(GMenuModel *model = nullptr){
+    virtual gtkaa::sptrGTKWidget create(){
+        return createWidget(gtk_popover_menu_new_from_model(nullptr));
+    }
+    virtual gtkaa::sptrGTKWidget create(GMenuModel *model){
         return createWidget(gtk_popover_menu_new_from_model(model));
     }
     virtual void set_menu_model(GMenuModel *model){

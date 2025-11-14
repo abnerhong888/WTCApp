@@ -6,7 +6,7 @@
 namespace GTKAA_NAMESPACE{
 
 class IHeaderBar: public IWidget{
-INHERIT_FROM_IWIDGET(IHeaderBar)
+INHERIT_FROM(IHeaderBar, IWidget)
 public:
     virtual gtkaa::sptrGTKWidget create(){
         return createWidget(gtk_header_bar_new());

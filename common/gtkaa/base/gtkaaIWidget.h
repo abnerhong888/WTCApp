@@ -37,7 +37,7 @@ public:
             gtk_widget_set_name(widget, m_widget_name.c_str());
 
         if(!m_widget) 
-            m_widget = gtkaa::make_ptr_release(widget);
+            m_widget = gtkaa::make_ptr_no_unref(widget);
 
         return m_widget;
     }
@@ -625,14 +625,14 @@ public:
 };
 
 
-#define INHERIT_FROM_IWIDGET(CLASSNAME)\
+#define INHERIT_FROM(CLASSNAME, BASENAME)\
 public: \
     virtual ~CLASSNAME() = default; \
     CLASSNAME() = default; \
-    CLASSNAME(std::string widgetName): IWidget(widgetName){} \
-    CLASSNAME(GtkWidget* widget, std::string widgetName = ""): IWidget(widget, widgetName){}\
-    CLASSNAME(gtkaa::sptrGTKWidget widget, std::string widgetName = ""): IWidget(widget, widgetName){}\
-    CLASSNAME(IWidget& widget): IWidget(widget){}\
-    CLASSNAME(const IWidget& widget): IWidget(widget){}
+    CLASSNAME(std::string widgetName): BASENAME(widgetName){} \
+    CLASSNAME(GtkWidget* widget, std::string widgetName = ""): BASENAME(widget, widgetName){}\
+    CLASSNAME(gtkaa::sptrGTKWidget widget, std::string widgetName = ""): BASENAME(widget, widgetName){}\
+    CLASSNAME(IWidget& widget): BASENAME(widget){}\
+    CLASSNAME(const IWidget& widget): BASENAME(widget){}
 }
 #endif

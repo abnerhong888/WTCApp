@@ -6,7 +6,7 @@
 namespace GTKAA_NAMESPACE{
 
 class IFlowBoxChild: public IWidget{
-INHERIT_FROM_IWIDGET(IFlowBoxChild)
+INHERIT_FROM(IFlowBoxChild, IWidget)
 public:
     virtual gtkaa::sptrGTKWidget create(){
         return createWidget(gtk_flow_box_child_new());
@@ -29,7 +29,7 @@ public:
 };
 
 class IFlowBox: public IWidget{
-INHERIT_FROM_IWIDGET(IFlowBox)
+INHERIT_FROM(IFlowBox, IWidget)
 public:
     virtual gtkaa::sptrGTKWidget create(){
         return createWidget(gtk_flow_box_new());

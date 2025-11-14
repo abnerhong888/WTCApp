@@ -6,7 +6,7 @@
 namespace GTKAA_NAMESPACE{
 
 class ICheckButton: public IWidget{
-INHERIT_FROM_IWIDGET(ICheckButton)
+INHERIT_FROM(ICheckButton, IWidget)
 public:
     virtual gtkaa::sptrGTKWidget create(){
         return createWidget(gtk_check_button_new());

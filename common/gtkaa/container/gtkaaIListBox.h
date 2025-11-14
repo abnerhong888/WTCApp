@@ -6,7 +6,7 @@
 namespace GTKAA_NAMESPACE{
 
 class IListBoxRow: public IWidget{
-INHERIT_FROM_IWIDGET(IListBoxRow)
+INHERIT_FROM(IListBoxRow, IWidget)
 public:
     virtual gtkaa::sptrGTKWidget create(){
         return createWidget(gtk_list_box_row_new());
@@ -45,7 +45,7 @@ public:
 
 
 class IListBox: public IWidget{
-INHERIT_FROM_IWIDGET(IListBox)
+INHERIT_FROM(IListBox, IWidget)
 public:
     virtual gtkaa::sptrGTKWidget create(){
         return createWidget(gtk_list_box_new());

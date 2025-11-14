@@ -10,7 +10,7 @@ public:
     gtkaa::sptrGTKCssProvider m_css_provider = nullptr;
 public:
     ICssProvider(){
-        m_css_provider = gtkaa::make_ptr_release(gtk_css_provider_new());
+        m_css_provider = gtkaa::make_ptr_unref(gtk_css_provider_new());
     }
     virtual ~ICssProvider() = default;
     virtual gpointer get(){

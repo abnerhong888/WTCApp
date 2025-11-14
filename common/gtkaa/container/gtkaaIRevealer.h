@@ -6,7 +6,7 @@
 namespace GTKAA_NAMESPACE{
 
 class IRevealer: public IWidget{
-INHERIT_FROM_IWIDGET(IRevealer)
+INHERIT_FROM(IRevealer, IWidget)
 public:
     virtual gtkaa::sptrGTKWidget create(){
         return createWidget(gtk_revealer_new());

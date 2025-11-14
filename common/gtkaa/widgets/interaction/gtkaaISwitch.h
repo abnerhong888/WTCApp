@@ -6,7 +6,7 @@
 namespace GTKAA_NAMESPACE{
 
 class ISwitch: public IWidget{
-INHERIT_FROM_IWIDGET(ISwitch)
+INHERIT_FROM(ISwitch, IWidget)
 public:
     virtual gtkaa::sptrGTKWidget create(){
         return createWidget(gtk_switch_new());

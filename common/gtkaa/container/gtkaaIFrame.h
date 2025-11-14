@@ -6,7 +6,7 @@
 namespace GTKAA_NAMESPACE{
 
 class IFrame: public IWidget{
-INHERIT_FROM_IWIDGET(IFrame)
+INHERIT_FROM(IFrame, IWidget)
 public:
     virtual gtkaa::sptrGTKWidget create(std::string label){
         return createWidget(gtk_frame_new(label.c_str()));

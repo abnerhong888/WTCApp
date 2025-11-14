@@ -7,7 +7,7 @@
 namespace GTKAA_NAMESPACE{
 
 class IExpander: public IWidget{
-INHERIT_FROM_IWIDGET(IExpander)
+INHERIT_FROM(IExpander, IWidget)
 public:
     virtual gtkaa::sptrGTKWidget create(std::string label){
         return createWidget(gtk_expander_new(label.c_str()));

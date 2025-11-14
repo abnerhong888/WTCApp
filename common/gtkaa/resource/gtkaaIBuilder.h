@@ -11,7 +11,7 @@ public:
     GError* error = NULL;
 public:
     IBuilder(){
-        m_builder = gtkaa::make_ptr_release(gtk_builder_new());
+        m_builder = gtkaa::make_ptr_unref(gtk_builder_new());
     }
     virtual ~IBuilder() = default;
     virtual gpointer get(){
@@ -44,7 +44,7 @@ public:
         //     GTK_WINDOW( gtk_builder_get_object(m_builder.get(), "main_window") )
         // );
         
-        return gtkaa::make_ptr_no_release(
+        return gtkaa::make_ptr_no_unref(
             (T*)gtk_builder_get_object(GTK_BUILDER(get()), name.c_str())
         );
     }

@@ -6,7 +6,7 @@
 namespace GTKAA_NAMESPACE{
 
 class ILabel: public IWidget{
-INHERIT_FROM_IWIDGET(ILabel)
+INHERIT_FROM(ILabel, IWidget)
 public:
     virtual gtkaa::sptrGTKWidget create(std::string label_string){
         return createWidget(gtk_label_new(label_string.c_str()));

@@ -6,7 +6,7 @@
 namespace GTKAA_NAMESPACE{
 
 class ISpinner: public IWidget{
-INHERIT_FROM_IWIDGET(ISpinner)
+INHERIT_FROM(ISpinner, IWidget)
 public:
     virtual gtkaa::sptrGTKWidget create(){
         return createWidget(gtk_spinner_new());

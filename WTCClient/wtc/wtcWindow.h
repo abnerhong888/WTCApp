@@ -2,8 +2,10 @@
 #define __WTCWINDOW_H__
 
 #include <gtkaa/gtkaa.h>
+#include "gtk/gtk.h"
 #include "wtcCommon.h"
 #include "wtcMenuBtn.h"
+#include "wtcSubMenu.h"
 
 static void on_open_clicked(GSimpleAction *action, GVariant *parameter, gpointer user_data) {
     g_print("Open clicked\n");
@@ -12,14 +14,6 @@ static void on_open_clicked(GSimpleAction *action, GVariant *parameter, gpointer
 static void on_quit_clicked(GSimpleAction *action, GVariant *parameter, gpointer user_data) {
     g_print("Quit clicked\n");
     gtk_window_close(GTK_WINDOW(user_data));
-}
-static void on_menu_button_clicked(GtkButton *button, gpointer user_data)
-{
-    GtkPopover *popover = GTK_POPOVER(user_data);
-    gtk_popover_popup(popover); // show popover
-    // gtk_popover_present(popover); // show popover
-    
-    g_print("Open clicked %p\n", popover);
 }
 class WTCWindow : public gtkaa::IWindow{
 public:
@@ -48,6 +42,7 @@ public:
     gtkaa::IHeaderBar m_header_bar;
 
     WTCMenuBtn m_menu_btn2;
+    WTCSubMenu m_sub_menu;
 public:
     void on_activate(GObject *obj, gpointer user_data) override{
         create(GTK_APPLICATION(obj));     
@@ -88,13 +83,18 @@ public:
         m_menu_button.set_label("Menu");
         m_menu_button.set_always_show_arrow(FALSE);
 
+        GMenu *submenu = g_menu_new();
+        g_menu_append(submenu, "File A", "app.file_a");
+        g_menu_append(submenu, "File B", "app.file_b");
 
         GMenu* menu_model = g_menu_new();
         g_menu_append(menu_model, "Open", "app.open");
         g_menu_append(menu_model, "Save", "app.save");
         g_menu_append(menu_model, "Quit", "app.quit");
+        g_menu_append_submenu(menu_model, "File", G_MENU_MODEL(submenu));
 
         m_popover_menu.create(G_MENU_MODEL(menu_model));
+        m_popover_menu.set_has_arrow(FALSE);
         g_object_unref(menu_model);
         
         m_menu_button.set_popover(&m_popover_menu);
@@ -116,37 +116,25 @@ public:
         gtk_widget_insert_action_group(GTK_WIDGET(get()), "app", G_ACTION_GROUP(actions));
 
 
-
-        // // Create popover content
-        // GtkWidget *popover = gtk_popover_new();
-        // GtkWidget *vbox = gtk_box_new(GTK_ORIENTATION_VERTICAL, 0);
-        // gtk_box_append(GTK_BOX(vbox), gtk_button_new_with_label("Open"));
-        // gtk_box_append(GTK_BOX(vbox), gtk_button_new_with_label("Settings"));
-        // gtk_popover_set_child(GTK_POPOVER(popover), vbox);
-
-        // // Create text-only button
-        // GtkWidget *text_button = gtk_button_new_with_label("Menu"); 
-        // gtk_widget_add_css_class(text_button, "flat"); // optional
-
-        // // Connect button -> popover
-        // g_signal_connect(text_button, "clicked", G_CALLBACK(on_menu_button_clicked), popover);
-
-        // // --- Connect popover to button ---
-        // gtk_popover_set_has_arrow(GTK_POPOVER(popover), FALSE);
-        // gtk_popover_set_position(GTK_POPOVER(popover), GTK_POS_BOTTOM);
-        // gtk_widget_set_parent(GTK_WIDGET(popover), text_button);
-        
-        // // Add to headerbar
-        // gtk_header_bar_pack_end(GTK_HEADER_BAR(m_header_bar.get()), text_button);
-
         m_menu_btn2.create("Menu2");
-        m_menu_btn2.add_button("OPEN", [](){
+        m_menu_btn2.add_button("OPEN                1", [](){
             g_print("OPEN\n");
         });
-        m_menu_btn2.add_button("SAVE", [](){
+        m_menu_btn2.add_button("SAVE        2", [](){
             g_print("SAVE\n");
         });
-        m_menu_btn2.add_button("QUIT", [](){
+        m_menu_btn2.add_button("QUIT        3", [](){
+            g_print("QUIT\n");
+        });
+
+        m_menu_btn2.add_separator();
+        m_sub_menu.create("MenuSubbb");
+        m_sub_menu.add_button("item1", [](){ g_print("item1\n"); });
+        m_sub_menu.add_button("item2", [](){ g_print("item2\n"); });
+        m_sub_menu.add_button("item3", [](){ g_print("item3\n"); });
+        m_menu_btn2.add_submenu(&m_sub_menu);
+        m_menu_btn2.add_separator();
+        m_menu_btn2.add_button("QUIT        4", [](){
             g_print("QUIT\n");
         });
         m_header_bar.pack_end(&m_menu_btn2);

@@ -6,7 +6,7 @@
 namespace GTKAA_NAMESPACE{
 
 class IStack: public IWidget{
-INHERIT_FROM_IWIDGET(IStack)
+INHERIT_FROM(IStack, IWidget)
 public:
     virtual gtkaa::sptrGTKWidget create(){
         return createWidget(gtk_stack_new());

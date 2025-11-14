@@ -6,7 +6,7 @@
 namespace GTKAA_NAMESPACE{
 
 class ISearchEntry: public IWidget{
-INHERIT_FROM_IWIDGET(ISearchEntry)
+INHERIT_FROM(ISearchEntry, IWidget)
 public:
     virtual gtkaa::sptrGTKWidget create(){
         return createWidget(gtk_search_entry_new());

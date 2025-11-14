@@ -6,7 +6,7 @@
 namespace GTKAA_NAMESPACE{
 
 class IFixed: public IWidget{
-INHERIT_FROM_IWIDGET(IFixed)
+INHERIT_FROM(IFixed, IWidget)
 public:
     virtual gtkaa::sptrGTKWidget create(){
         return createWidget(gtk_fixed_new());

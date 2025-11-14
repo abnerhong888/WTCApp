@@ -6,7 +6,7 @@
 namespace GTKAA_NAMESPACE{
 
 class IImage: public IWidget{
-INHERIT_FROM_IWIDGET(IImage)
+INHERIT_FROM(IImage, IWidget)
 public:
     virtual gtkaa::sptrGTKWidget create(){
         return createWidget(gtk_image_new());

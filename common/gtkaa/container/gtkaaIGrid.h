@@ -6,7 +6,7 @@
 namespace GTKAA_NAMESPACE{
 
 class IGrid: public IWidget{
-INHERIT_FROM_IWIDGET(IGrid)
+INHERIT_FROM(IGrid, IWidget)
 public:
     virtual gtkaa::sptrGTKWidget create(){
         return createWidget(gtk_grid_new());
